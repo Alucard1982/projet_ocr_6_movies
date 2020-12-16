@@ -1,13 +1,42 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8" />
-    <title>Mon site web</title>
-    <link rel="stylesheet" href="../static/style.css" />
+      <meta charset="UTF-8" />
+      <title>Netflix Return</title>
+      <link rel="stylesheet" href="../static/style.css" />
+      <script src="../static/movies.js"></script>
+      <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   </head>
-
   <body>
-  <h1>Bonjour cher(e) {{texte}} </h1>
-  <h2>{{ message}} </h2>
+  <header>
+      <div><H1>JustStreamIt</H1></div>
+      <div id = menu><a href="#">Accueil</a><span><a href="#">Categories</a></span></div>
+  </header>
+  <dialog id="mydialog" close>
+      Voici une fenêtre d'information !<br/>
+      <p>Elle peut contenir tout type de balises p>Elle peut contenir tout type de balises HTML.</p>
+      <p>Elle peut contenir tout type de balises HTML.</p>
+      <p>Elle peut contenir tout type de balises HTML.</p>
+      <p>Elle peut contenir tout type de balises HTML.</p>
+      <p>Elle peut contenir tout type de balises HTML.</p>
+      <button onclick="$dialog.close()">Fermer</button>
+  </dialog>
+  <h3>Meilleur Film</h3>
+  <div>
+    <div id="meilleur-film">
+        <button id ="button-best">Play</button>
+        <img class = "best-film" src='/static/vague.jpg' alt="movie">
+    </div>
+  </div>
+    <h3>Film les mieux notés</h3>
+    <div id="film-notes">
+        <i  class="fas fa-arrow-right"></i>
+        <i  class="fas fa-arrow-left"></i>
+        <img class ="test" src='/static/vague.jpg'  alt="movie" >
+        <img class ="test" src='/static/vague.jpg' alt="movie" >
+        <img class ="test" src='/static/vague.jpg' alt="movie">
+        <img class ="test" src='/static/vague.jpg' alt="movie">
+    </div>
+    <script src="../static/movies.js"></script>
   </body>
 </html>

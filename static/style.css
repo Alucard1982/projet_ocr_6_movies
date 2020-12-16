@@ -1,3 +1,75 @@
-h1 {
-color : SlateBlue;
+
+ body{
+         background-color: black;
+ }
+ #button-best{
+
+
+       position:absolute;
+       margin-top:400px;
+       margin-left:5%;
+       width:100px;
+       background-color:grey;
+       display:block;
 }
+ dialog{
+         border-radius: 10px;
+         box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  }
+ dialog::backdrop{
+          background-color: rgba(0, 0, 0, 0.6);
+          width:100%;
+  }
+ .best-film{
+  cursor: pointer;
+          max-width: 100%;
+          height: auto;
+          margin-right:20px;
+  }
+  #film-notes{
+          display:flex;
+
+  }
+  #film-note ,img{
+          cursor: pointer;
+          max-width: 25%;
+          height: auto;
+          margin-right:5px;
+  }
+  H3{
+     color:rgb(255,255,255);
+  }
+
+  #menu{
+          display:flex;
+          justify-content:center;
+          font-size:23px;
+}
+
+  header,H1{
+          color:red;
+}
+
+  span{
+          margin-left:40px;
+          color:rgb(255,255,255);
+}
+
+.fa-arrow-right{
+    margin-left: 96%;
+    margin-top:7.5%;
+    position:absolute;
+    font-size: 30px;
+}
+.fa-arrow-left{
+    margin-left: 1%;
+    margin-top:7%;
+    position:absolute;
+    font-size: 30px;
+}
+
+
+
+
+
+
