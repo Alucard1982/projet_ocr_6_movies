@@ -1,16 +1,14 @@
 
  body{
-         background-color: black;
+         background-color:black;
  }
  #button-best{
 
-
-       position:absolute;
-       margin-top:400px;
-       margin-left:5%;
-       width:100px;
-       background-color:grey;
-       display:block;
+        position:absolute;
+        margin-top:350px;
+        width:100px;
+        background-color:grey;
+        display:block;
 }
  dialog{
          border-radius: 10px;
@@ -22,22 +20,26 @@
   }
  .best-film{
   cursor: pointer;
-          max-width: 100%;
-          height: auto;
-          margin-right:20px;
+          width:400px;
+          height:400px;
+
   }
   #film-notes{
           display:flex;
-
+          justify-content:center;
   }
-  #film-note ,img{
+  #film-note,.test{
           cursor: pointer;
-          max-width: 25%;
+          max-width: 100%;
           height: auto;
-          margin-right:5px;
+          margin-left:20px;
+  }
+  #film-categorie1{
+          display:flex;
+          justify-content:center;
   }
   H3{
-     color:rgb(255,255,255);
+          color:rgb(255,255,255);
   }
 
   #menu{
@@ -56,16 +58,18 @@
 }
 
 .fa-arrow-right{
-    margin-left: 96%;
-    margin-top:7.5%;
-    position:absolute;
-    font-size: 30px;
+          margin-left: 90%;
+          margin-top:7.5%;
+          position:absolute;
+          font-size: 50px;
+          color:rgb(255,255,255)
 }
 .fa-arrow-left{
-    margin-left: 1%;
-    margin-top:7%;
-    position:absolute;
-    font-size: 30px;
+          margin-left: 5%;
+          margin-top:7%;
+          position:absolute;
+          font-size: 50px;
+          color:rgb(255,255,255)
 }
 
 

@@ -25,17 +25,28 @@
   <div>
     <div id="meilleur-film">
         <button id ="button-best">Play</button>
-        <img class = "best-film" src='/static/vague.jpg' alt="movie">
+        <img class = "best-film" src="{{best_film['image_url']}}" alt="movie">
     </div>
   </div>
     <h3>Film les mieux notés</h3>
-    <div id="film-notes">
-        <i  class="fas fa-arrow-right"></i>
-        <i  class="fas fa-arrow-left"></i>
-        <img class ="test" src='/static/vague.jpg'  alt="movie" >
-        <img class ="test" src='/static/vague.jpg' alt="movie" >
-        <img class ="test" src='/static/vague.jpg' alt="movie">
-        <img class ="test" src='/static/vague.jpg' alt="movie">
+    <div>
+        <i class="fas fa-arrow-right" ></i>
+        <i class="fas fa-arrow-left" ></i>
+        <div id="film-notes">
+            {% for picture in all_best_movies %}
+                <img class ="test" src="{{picture['image_url']}}" alt="movie">
+            {% endfor %}
+        </div>
+    </div>
+    <h3>Meilleur film de la categorie Famille</h3>
+    <div>
+        <i class="fas fa-arrow-right" ></i>
+        <i class="fas fa-arrow-left" ></i>
+        <div id="film-categorie1">
+            {% for picture in categories_familly %}
+                <img class ="test" src="{{picture['image_url']}}" alt="movie">
+            {% endfor %}
+        </div>
     </div>
     <script src="../static/movies.js"></script>
   </body>
