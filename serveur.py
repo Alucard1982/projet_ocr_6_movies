@@ -21,7 +21,6 @@ def requeste():
     best_movies = response.json()
     for i in range((len(best_movies['results']))):
         response = requests.get((best_movies['results'][i]['url']))
-
         list_dic_best_movies.append(response.json())
     best_movies = list_dic_best_movies[:-3]
 
@@ -63,6 +62,16 @@ def requeste():
                            all_best_movies=best_movies,
                            categories_horror=categorie_horror,
                            categories_music=categorie_music)
+
+
+@app.route("/best_movie/")
+def api_best_movie():
+    response = requests.get('http://127.0.0.1:8000/api/v1/titles?imdb_score_min=9.6&year=2017')
+    best_film = response.json()
+    url_best_film_details = best_film['results'][0]['url']
+    response = requests.get(url_best_film_details)
+    best_film_details = response.json()
+    return jsonify(best_film_details)
 
 
 @app.route("/best_movies/")
@@ -118,6 +127,7 @@ def api_music():
         response = requests.get((genre_film['results'][i]['url']))
         list_dic_music.append(response.json())
     return jsonify(list_dic_music)
+
 
 if __name__ == "__main__":
     app.run(debug=True)

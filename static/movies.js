@@ -1,6 +1,7 @@
 var $dialog = document.getElementById('mydialog');
 var image = document.getElementById('film-notes');
-var list_image = document.getElementById('film-notes').getElementsByTagName('img');
+var button_play = document.getElementById('button-best');
+
 
 var carousel_best_movies_position1 = document.getElementById('film-notes').getElementsByClassName('slider_best_movies')[0]
 var carousel_best_movies_position2 = document.getElementById('film-notes').getElementsByClassName('slider_best_movies')[1]
@@ -36,6 +37,19 @@ var list_img_horror = [];
 var list_img_music = [];
 var position = 0;
 
+var data_list_best_movie = [];
+
+function ajax_best_movies(){
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+          data_list_best_movie=JSON.parse(this.responseText);
+
+      }
+    };
+    xmlhttp.open("GET","http://127.0.0.1:5000/best_movie/", true);
+    xmlhttp.send();
+}
 function ajax_best_movies(){
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
@@ -106,7 +120,17 @@ function backClick(list, carousel1, carousel2, carousel3, carousel4){
     carousel4.src=list[(position+3)%7];
 }
 
+function modal_best_movie(data_list_best_movie, $dialog ){
+        $dialog.innerHTML="<p>looooooooooooooool</p>"
+        $dialog.showModal()
+
+
+}
+
+
 image.addEventListener('click', function(){ $dialog.showModal();});
+button_play.addEventListener('click', function(){ modal_best_movie(data_list_best_movie, $dialog );});
+
 
 click_forward_best_movies.addEventListener('click',function (){forwardClick(image_best_movies, carousel_best_movies_position1,
 carousel_best_movies_position2, carousel_best_movies_position3, carousel_best_movies_position4);});
