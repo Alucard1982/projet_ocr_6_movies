@@ -20,15 +20,23 @@
       <p>Elle peut contenir tout type de balises HTML.</p>
       <button onclick="$dialog.close()">Fermer</button>
   </dialog>
-  <h3>Meilleur Film</h3>
-  <div>
+
+  <div class="block">
+      <h3>Meilleur Film</h3>
     <div id="meilleur-film">
-        <button id ="button-best">Play</button>
-        <img class = "best-film" src="{{best_film['image_url']}}" alt="movie">
+
+        <div>
+            <div>
+                 <button id ="button-best">Play</button>
+                <div id = "description_best_film">{{best_film['description']}}</div>
+            </div>
+            <img class = "best-film" src="{{best_film['image_url']}}" alt="movie" >
+        </div>
     </div>
   </div>
-    <h3>Film les mieux notés</h3>
-    <div>
+
+    <div class="block">
+        <h3>Film les mieux notés</h3>
         <i id = "click_forward" class="fas fa-arrow-right" ></i>
         <i id = "click_back"class="fas fa-arrow-left" ></i>
         <div id="film-notes">
@@ -37,8 +45,9 @@
             {% endfor %}
         </div>
     </div>
-    <h3>Meilleur film de la categorie Famille</h3>
-    <div>
+
+    <div class="block">
+        <h3>Meilleur film de la categorie Famille</h3>
         <i id = "click_forward_familly" class="fas fa-arrow-right" ></i>
         <i id = "click_back_familly" class="fas fa-arrow-left" ></i>
         <div id="film-categorie1">
@@ -47,8 +56,9 @@
             {% endfor %}
         </div>
     </div>
-    <h3>Meilleur film de la categorie Horror</h3>
-    <div>
+
+    <div class = "block">
+        <h3>Meilleur film de la categorie Horror</h3>
         <i id = "click_forward_horror" class="fas fa-arrow-right" ></i>
         <i id = "click_back_horror" class="fas fa-arrow-left" ></i>
         <div id="film-categorie2">
@@ -57,8 +67,9 @@
             {% endfor %}
         </div>
     </div>
-    <h3>Meilleur film de la categorie Music</h3>
-    <div>
+
+    <div class = "block">
+        <h3>Meilleur film de la categorie Music</h3>
         <i id = "click_forward_music" class="fas fa-arrow-right" ></i>
         <i id = "click_back_music" class="fas fa-arrow-left" ></i>
         <div id="film-categorie3">

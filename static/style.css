@@ -6,12 +6,18 @@
         display:none;
  }
  #button-best{
-
         position:absolute;
         margin-top:350px;
+        margin-left:20px;
         width:100px;
-        background-color:grey;
-        display:block;
+        background-color:red;
+        border-radius: 10px;
+
+}
+#description_best_film{
+        position:absolute;
+        width:10%;
+        color:white;
 }
  dialog{
          border-radius: 10px;
@@ -26,6 +32,10 @@
           width:400px;
           height:400px;
 
+  }
+   #meilleur-film{
+          display:flex;
+          justify-content:center;
   }
   #film-notes{
           display:flex;
@@ -69,6 +79,7 @@
   }
   H3{
           color:rgb(255,255,255);
+          text-align:center;
   }
 
   #menu{
@@ -99,6 +110,9 @@
           position:absolute;
           font-size: 50px;
           color:rgb(255,255,255)
+}
+.block{
+    margin-top:5%;
 }
 
 
