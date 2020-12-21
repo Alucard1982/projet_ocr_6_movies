@@ -47,6 +47,26 @@
             {% endfor %}
         </div>
     </div>
+    <h3>Meilleur film de la categorie Horror</h3>
+    <div>
+        <i id = "click_forward_horror" class="fas fa-arrow-right" ></i>
+        <i id = "click_back_horror" class="fas fa-arrow-left" ></i>
+        <div id="film-categorie2">
+            {% for picture in categories_horror %}
+                <img class ="slider_horror" src="{{picture['image_url']}}" alt="movie">
+            {% endfor %}
+        </div>
+    </div>
+    <h3>Meilleur film de la categorie Music</h3>
+    <div>
+        <i id = "click_forward_music" class="fas fa-arrow-right" ></i>
+        <i id = "click_back_music" class="fas fa-arrow-left" ></i>
+        <div id="film-categorie3">
+            {% for picture in categories_music %}
+                <img class ="slider_music" src="{{picture['image_url']}}" alt="movie">
+            {% endfor %}
+        </div>
+    </div>
     <script src="../static/movies.js"></script>
   </body>
 </html>

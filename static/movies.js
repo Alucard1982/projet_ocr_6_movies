@@ -16,8 +16,24 @@ var carousel_familly_position4 = document.getElementById('film-categorie1').getE
 var click_forward_familly= document.getElementById('click_forward_familly');
 var click_back_familly = document.getElementById('click_back_familly');
 
+var carousel_horror_position1 = document.getElementById('film-categorie2').getElementsByClassName('slider_horror')[0]
+var carousel_horror_position2 = document.getElementById('film-categorie2').getElementsByClassName('slider_horror')[1]
+var carousel_horror_position3 = document.getElementById('film-categorie2').getElementsByClassName('slider_horror')[2]
+var carousel_horror_position4 = document.getElementById('film-categorie2').getElementsByClassName('slider_horror')[3];
+var click_forward_horror= document.getElementById('click_forward_horror');
+var click_back_horror = document.getElementById('click_back_horror');
+
+var carousel_music_position1 = document.getElementById('film-categorie3').getElementsByClassName('slider_music')[0]
+var carousel_music_position2 = document.getElementById('film-categorie3').getElementsByClassName('slider_music')[1]
+var carousel_music_position3 = document.getElementById('film-categorie3').getElementsByClassName('slider_music')[2]
+var carousel_music_position4 = document.getElementById('film-categorie3').getElementsByClassName('slider_music')[3];
+var click_forward_music= document.getElementById('click_forward_music');
+var click_back_music = document.getElementById('click_back_music');
+
 var image_best_movies = [];
 var list_img_familly = [];
+var list_img_horror = [];
+var list_img_music = [];
 var position = 0;
 
 function ajax_best_movies(){
@@ -43,8 +59,33 @@ function ajax_categorie_familly(){
           }
       }
     };
-
     xmlhttp.open("GET","http://127.0.0.1:5000/familly/", true);
+    xmlhttp.send();
+}
+function ajax_categorie_horror(){
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+          data_list=JSON.parse(this.responseText);
+          for(var i = 0; i < data_list.length; i++){
+            list_img_horror.push(data_list[i]['image_url'])
+          }
+      }
+    };
+    xmlhttp.open("GET","http://127.0.0.1:5000/horror/", true);
+    xmlhttp.send();
+}
+function ajax_categorie_music(){
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+          data_list=JSON.parse(this.responseText);
+          for(var i = 0; i < data_list.length; i++){
+            list_img_music.push(data_list[i]['image_url'])
+          }
+      }
+    };
+    xmlhttp.open("GET","http://127.0.0.1:5000/music/", true);
     xmlhttp.send();
 }
 function forwardClick(list, carousel1, carousel2, carousel3, carousel4){
@@ -77,7 +118,19 @@ carousel_familly_position2, carousel_familly_position3, carousel_familly_positio
 click_back_familly.addEventListener('click',function (){backClick(list_img_familly, carousel_familly_position1,
 carousel_familly_position2, carousel_familly_position3, carousel_familly_position4);});
 
+click_forward_horror.addEventListener('click',function (){forwardClick(list_img_horror, carousel_horror_position1,
+carousel_horror_position2, carousel_horror_position3, carousel_horror_position4);});
+click_back_horror.addEventListener('click',function (){backClick(list_img_horror, carousel_horror_position1,
+carousel_horror_position2, carousel_horror_position3, carousel_horror_position4);});
+
+click_forward_music.addEventListener('click',function (){forwardClick(list_img_music, carousel_music_position1,
+carousel_music_position2, carousel_music_position3, carousel_music_position4);});
+click_back_music.addEventListener('click',function (){backClick(list_img_music, carousel_music_position1,
+carousel_music_position2, carousel_music_position3, carousel_music_position4);});
+
 document.addEventListener ("DOMContentLoaded", function (){ajax_best_movies();});
 document.addEventListener ("DOMContentLoaded", function (){ajax_categorie_familly();});
+document.addEventListener ("DOMContentLoaded", function (){ajax_categorie_horror();});
+document.addEventListener ("DOMContentLoaded", function (){ajax_categorie_music();});
 
 

@@ -47,6 +47,26 @@
           height: auto;
           margin-left:20px;
   }
+  #film-categorie2{
+          display:flex;
+          justify-content:center;
+  }
+  #film-categorie2,.slider_horror{
+          cursor: pointer;
+          max-width: 100%;
+          height: auto;
+          margin-left:20px;
+  }
+  #film-categorie3{
+          display:flex;
+          justify-content:center;
+  }
+  #film-categorie3,.slider_music{
+          cursor: pointer;
+          max-width: 100%;
+          height: auto;
+          margin-left:20px;
+  }
   H3{
           color:rgb(255,255,255);
   }
