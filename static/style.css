@@ -2,6 +2,9 @@
  body{
          background-color:black;
  }
+ #film-categorie1.selected{
+        display:none;
+ }
  #button-best{
 
         position:absolute;
@@ -28,7 +31,7 @@
           display:flex;
           justify-content:center;
   }
-  #film-note,.test{
+  #film-note,.slider_best_movies{
           cursor: pointer;
           max-width: 100%;
           height: auto;
@@ -37,6 +40,12 @@
   #film-categorie1{
           display:flex;
           justify-content:center;
+  }
+  #film-categorie1,.slider_familly{
+          cursor: pointer;
+          max-width: 100%;
+          height: auto;
+          margin-left:20px;
   }
   H3{
           color:rgb(255,255,255);

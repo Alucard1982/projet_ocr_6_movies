@@ -4,7 +4,6 @@
       <meta charset="UTF-8" />
       <title>Netflix Return</title>
       <link rel="stylesheet" href="../static/style.css" />
-      <script src="../static/movies.js"></script>
       <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   </head>
   <body>
@@ -30,21 +29,21 @@
   </div>
     <h3>Film les mieux notés</h3>
     <div>
-        <i class="fas fa-arrow-right" ></i>
-        <i class="fas fa-arrow-left" ></i>
+        <i id = "click_forward" class="fas fa-arrow-right" ></i>
+        <i id = "click_back"class="fas fa-arrow-left" ></i>
         <div id="film-notes">
             {% for picture in all_best_movies %}
-                <img class ="test" src="{{picture['image_url']}}" alt="movie">
+                <img class ="slider_best_movies" src="{{picture['image_url']}}" alt="movie">
             {% endfor %}
         </div>
     </div>
     <h3>Meilleur film de la categorie Famille</h3>
     <div>
-        <i class="fas fa-arrow-right" ></i>
-        <i class="fas fa-arrow-left" ></i>
+        <i id = "click_forward_familly" class="fas fa-arrow-right" ></i>
+        <i id = "click_back_familly" class="fas fa-arrow-left" ></i>
         <div id="film-categorie1">
             {% for picture in categories_familly %}
-                <img class ="test" src="{{picture['image_url']}}" alt="movie">
+                <img class ="slider_familly" src="{{picture['image_url']}}" alt="movie">
             {% endfor %}
         </div>
     </div>
