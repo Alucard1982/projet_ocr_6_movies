@@ -1,5 +1,4 @@
-var $dialog = document.getElementById('mydialog');
-var image = document.getElementById('film-notes');
+var dialog = document.getElementById('mydialog');
 var button_play = document.getElementById('button-best');
 
 var carousel_best_movies_position1 = document.getElementById('film-notes').getElementsByClassName('slider_best_movies')[0]
@@ -127,7 +126,7 @@ function backClick(list, carousel1, carousel2, carousel3, carousel4){
     carousel3.src=list[(position+2)%7];
     carousel4.src=list[(position+3)%7];
 }
-function modal(list, data_list, carousel,$dialog ){
+function modal(list, data_list, carousel, dialog ){
         if (carousel.src==list[0]){
              data_list=data_list[0];
         }
@@ -149,43 +148,62 @@ function modal(list, data_list, carousel,$dialog ){
         else if (carousel.src==list[6]){
             data_list=data_list[6];
         }
-        $dialog.innerHTML= '<img class=image_dialogue src='+data_list['image_url']+'>'+
+        dialog.innerHTML= '<img class=image_dialogue src='+data_list['image_url']+'>'+
+                           '<button class=button_dialogue>Play</button>'+
                            '<p>Title:'+data_list['title']+'</p>'+
                            '<p>Genres:'+data_list['genres']+'</p>'+
                            '<p>Date_published:'+data_list['date_published']+'</p>'+
-                           '<p>Rated:'+data_list['rated']+'</p>'+
+                           '<p>Rated:'+data_list['votes']+'</p>'+
                            '<p>Imdb_score:'+data_list['imdb_score']+'</p>'+
                            '<p>Directors:'+data_list['directors']+'</p>'+
                            '<p class=actors_dialogue>Actors:'+data_list['actors']+'</p>'+
                            '<p>Duration:'+data_list['duration']+'</p>'+
                            '<p>Countries:'+data_list['countries']+'</p>'+
                            '<p>Box_office:'+data_list['usa_gross_income']+'</p>'+
-                           '<div class = description><p>Description:'+data_list['description']+'</p></div>'+
-                           '<button onclick="$dialog.close()">Fermer</button>'
+                           '<div class = description_dialogue><p>Description:'+data_list['description']+'</p></div>'+
+                           '<button onclick="dialog.close()">Close</button>'
 
-        $dialog.showModal()
+        dialog.showModal()
 }
-button_play.addEventListener('click', function(){ modal(data_list_best_movie[0], $dialog );});
+function modal_best_film(data_list, dialog ){
+        dialog.innerHTML= '<img class=image_dialogue src='+data_list['image_url']+'>'+
+                           '<button class=button_dialogue>Play</button>'+
+                           '<p>Title:'+data_list['title']+'</p>'+
+                           '<p>Genres:'+data_list['genres']+'</p>'+
+                           '<p>Date_published:'+data_list['date_published']+'</p>'+
+                           '<p>Rated:'+data_list['votes']+'</p>'+
+                           '<p>Imdb_score:'+data_list['imdb_score']+'</p>'+
+                           '<p>Directors:'+data_list['directors']+'</p>'+
+                           '<p class=actors_dialogue>Actors:'+data_list['actors']+'</p>'+
+                           '<p>Duration:'+data_list['duration']+'</p>'+
+                           '<p>Countries:'+data_list['countries']+'</p>'+
+                           '<p>Box_office:'+data_list['usa_gross_income']+'</p>'+
+                           '<div class = description_dialogue><p>Description:'+data_list['description']+'</p></div>'+
+                           '<button onclick="dialog.close()">Close</button>'
 
-carousel_best_movies_position1.addEventListener('click', function(){ modal(image_best_movies,data_list_best_movies,carousel_best_movies_position1, $dialog );});
-carousel_best_movies_position2.addEventListener('click', function(){ modal(image_best_movies,data_list_best_movies,carousel_best_movies_position2, $dialog );});
-carousel_best_movies_position3.addEventListener('click', function(){ modal(image_best_movies,data_list_best_movies,carousel_best_movies_position3, $dialog );});
-carousel_best_movies_position4.addEventListener('click', function(){ modal(image_best_movies,data_list_best_movies,carousel_best_movies_position4, $dialog );});
+        dialog.showModal()
+}
+button_play.addEventListener('click', function(){ modal_best_film(data_list_best_movie[0],dialog );});
 
-carousel_familly_position1.addEventListener('click', function(){ modal(list_img_familly,data_list_family,carousel_familly_position1, $dialog );});
-carousel_familly_position2.addEventListener('click', function(){ modal(list_img_familly,data_list_family,carousel_familly_position2, $dialog );});
-carousel_familly_position3.addEventListener('click', function(){ modal(list_img_familly,data_list_family,carousel_familly_position3, $dialog );});
-carousel_familly_position4.addEventListener('click', function(){ modal(list_img_familly,data_list_family,carousel_familly_position4, $dialog );});
+carousel_best_movies_position1.addEventListener('click', function(){ modal(image_best_movies,data_list_best_movies,carousel_best_movies_position1, dialog );});
+carousel_best_movies_position2.addEventListener('click', function(){ modal(image_best_movies,data_list_best_movies,carousel_best_movies_position2, dialog );});
+carousel_best_movies_position3.addEventListener('click', function(){ modal(image_best_movies,data_list_best_movies,carousel_best_movies_position3, dialog );});
+carousel_best_movies_position4.addEventListener('click', function(){ modal(image_best_movies,data_list_best_movies,carousel_best_movies_position4, dialog );});
 
-carousel_horror_position1.addEventListener('click', function(){ modal(list_img_horror,data_list_horror,carousel_horror_position1, $dialog );});
-carousel_horror_position2.addEventListener('click', function(){ modal(list_img_horror,data_list_horror,carousel_horror_position2, $dialog );});
-carousel_horror_position3.addEventListener('click', function(){ modal(list_img_horror,data_list_horror,carousel_horror_position3, $dialog );});
-carousel_horror_position4.addEventListener('click', function(){ modal(list_img_horror,data_list_horror,carousel_horror_position4, $dialog );});
+carousel_familly_position1.addEventListener('click', function(){ modal(list_img_familly,data_list_family,carousel_familly_position1, dialog );});
+carousel_familly_position2.addEventListener('click', function(){ modal(list_img_familly,data_list_family,carousel_familly_position2, dialog );});
+carousel_familly_position3.addEventListener('click', function(){ modal(list_img_familly,data_list_family,carousel_familly_position3, dialog );});
+carousel_familly_position4.addEventListener('click', function(){ modal(list_img_familly,data_list_family,carousel_familly_position4, dialog );});
 
-carousel_music_position1.addEventListener('click', function(){ modal(list_img_music,data_list_music,carousel_music_position1, $dialog );});
-carousel_music_position2.addEventListener('click', function(){ modal(list_img_music,data_list_music,carousel_music_position2, $dialog );});
-carousel_music_position3.addEventListener('click', function(){ modal(list_img_music,data_list_music,carousel_music_position3, $dialog );});
-carousel_music_position4.addEventListener('click', function(){ modal(list_img_music,data_list_music,carousel_music_position4, $dialog );});
+carousel_horror_position1.addEventListener('click', function(){ modal(list_img_horror,data_list_horror,carousel_horror_position1, dialog );});
+carousel_horror_position2.addEventListener('click', function(){ modal(list_img_horror,data_list_horror,carousel_horror_position2, dialog );});
+carousel_horror_position3.addEventListener('click', function(){ modal(list_img_horror,data_list_horror,carousel_horror_position3, dialog );});
+carousel_horror_position4.addEventListener('click', function(){ modal(list_img_horror,data_list_horror,carousel_horror_position4, dialog );});
+
+carousel_music_position1.addEventListener('click', function(){ modal(list_img_music,data_list_music,carousel_music_position1, dialog );});
+carousel_music_position2.addEventListener('click', function(){ modal(list_img_music,data_list_music,carousel_music_position2, dialog );});
+carousel_music_position3.addEventListener('click', function(){ modal(list_img_music,data_list_music,carousel_music_position3, dialog );});
+carousel_music_position4.addEventListener('click', function(){ modal(list_img_music,data_list_music,carousel_music_position4, dialog );});
 
 
 click_forward_best_movies.addEventListener('click',function (){forwardClick(image_best_movies, carousel_best_movies_position1,

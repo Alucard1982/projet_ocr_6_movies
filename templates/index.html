@@ -11,18 +11,14 @@
       <div><H1>JustStreamIt</H1></div>
       <div id = menu><a href="#">Accueil</a><span><a href="#">Categories</a></span></div>
   </header>
-  <dialog id="mydialog" close>
-
-      <button onclick="$dialog.close()">Fermer</button>
-  </dialog>
-
+  <dialog id="mydialog" close></dialog>
   <div class="block">
       <h3>Meilleur Film</h3>
     <div id="meilleur-film">
 
         <div>
             <div>
-                 <button id ="button-best">Play</button>
+                <button id ="button-best">Show</button>
                 <div id = "description_best_film">{{best_film['description']}}</div>
             </div>
             <img class = "best-film" src="{{best_film['image_url']}}" alt="movie" >

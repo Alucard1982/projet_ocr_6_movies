@@ -30,17 +30,26 @@
           width:100%;
   }
 
-.description{
-    width:50%;
+.description_dialogue{
+          width:70%;
  }
 
  .image_dialogue{
-    left:400px;
-    top:50px;
-    position:absolute;
+          left:400px;
+          top:50px;
+          position:absolute;
  }
  .actors_dialogue{
-    width:50%;
+          width:50%;
+ }
+ .button_dialogue{
+          width:100px;
+          background-color:red;
+          border-radius: 10px;
+          position:absolute;
+          left:450px;
+          top:340px;
+
  }
  .best-film{
   cursor: pointer;
