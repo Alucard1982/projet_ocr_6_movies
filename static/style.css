@@ -2,9 +2,6 @@
  body{
          background-color:black;
  }
- #film-categorie1.selected{
-        display:none;
- }
  #button-best{
         position:absolute;
         margin-top:350px;
@@ -18,15 +15,33 @@
         position:absolute;
         width:10%;
         color:white;
+        font-family:Verdana, Arial, Helvetica, sans-serif;
 }
  dialog{
          border-radius: 10px;
          box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+         background: linear-gradient(white, grey);;
+         width:50%;
+
+
   }
  dialog::backdrop{
           background-color: rgba(0, 0, 0, 0.6);
           width:100%;
   }
+
+.description{
+    width:50%;
+ }
+
+ .image_dialogue{
+    left:400px;
+    top:50px;
+    position:absolute;
+ }
+ .actors_dialogue{
+    width:50%;
+ }
  .best-film{
   cursor: pointer;
           width:400px;
@@ -114,6 +129,25 @@
 .block{
     margin-top:5%;
 }
+
+@media screen and (max-width: 1112px){
+    dialog{
+           width:60%;
+    }
+}
+
+@media screen and (min-width: 1350px){
+    dialog{
+           width:40%;
+    }
+}
+
+@media screen and (min-width: 1850px){
+    dialog{
+           width:30%;
+    }
+}
+
 
 
 

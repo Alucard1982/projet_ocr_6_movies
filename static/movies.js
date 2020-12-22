@@ -2,7 +2,6 @@ var $dialog = document.getElementById('mydialog');
 var image = document.getElementById('film-notes');
 var button_play = document.getElementById('button-best');
 
-
 var carousel_best_movies_position1 = document.getElementById('film-notes').getElementsByClassName('slider_best_movies')[0]
 var carousel_best_movies_position2 = document.getElementById('film-notes').getElementsByClassName('slider_best_movies')[1]
 var carousel_best_movies_position3 = document.getElementById('film-notes').getElementsByClassName('slider_best_movies')[2]
@@ -38,13 +37,17 @@ var list_img_music = [];
 var position = 0;
 
 var data_list_best_movie = [];
+var data_list_best_movies = [];
+var data_list_family = [];
+var data_list_horror = [];
+var data_list_music = [];
 
-function ajax_best_movies(){
+function ajax_best_movie(){
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-          data_list_best_movie=JSON.parse(this.responseText);
-
+          data_list=JSON.parse(this.responseText);
+          data_list_best_movie.push(data_list);
       }
     };
     xmlhttp.open("GET","http://127.0.0.1:5000/best_movie/", true);
@@ -57,6 +60,7 @@ function ajax_best_movies(){
           data_list=JSON.parse(this.responseText);
           for(var i = 0; i < data_list.length; i++){
             image_best_movies.push(data_list[i]['image_url'])
+            data_list_best_movies.push(data_list[i])
           }
       }
     };
@@ -70,6 +74,8 @@ function ajax_categorie_familly(){
           data_list=JSON.parse(this.responseText);
           for(var i = 0; i < data_list.length; i++){
             list_img_familly.push(data_list[i]['image_url'])
+            data_list_family.push(data_list[i])
+
           }
       }
     };
@@ -83,6 +89,7 @@ function ajax_categorie_horror(){
           data_list=JSON.parse(this.responseText);
           for(var i = 0; i < data_list.length; i++){
             list_img_horror.push(data_list[i]['image_url'])
+            data_list_horror.push(data_list[i])
           }
       }
     };
@@ -96,6 +103,7 @@ function ajax_categorie_music(){
           data_list=JSON.parse(this.responseText);
           for(var i = 0; i < data_list.length; i++){
             list_img_music.push(data_list[i]['image_url'])
+            data_list_music.push(data_list[i])
           }
       }
     };
@@ -119,17 +127,65 @@ function backClick(list, carousel1, carousel2, carousel3, carousel4){
     carousel3.src=list[(position+2)%7];
     carousel4.src=list[(position+3)%7];
 }
+function modal(list, data_list, carousel,$dialog ){
+        if (carousel.src==list[0]){
+             data_list=data_list[0];
+        }
+        else if (carousel.src==list[1]){
+            data_list=data_list[1];
+        }
+        else if (carousel.src==list[2]){
+            data_list=data_list[2];
+        }
+        else if (carousel.src==list[3]){
+            data_list=data_list[3];
+        }
+        else if (carousel.src==list[4]){
+            data_list=data_list[4];
+        }
+        else if (carousel.src==list[5]){
+            data_list=data_list[5];
+        }
+        else if (carousel.src==list[6]){
+            data_list=data_list[6];
+        }
+        $dialog.innerHTML= '<img class=image_dialogue src='+data_list['image_url']+'>'+
+                           '<p>Title:'+data_list['title']+'</p>'+
+                           '<p>Genres:'+data_list['genres']+'</p>'+
+                           '<p>Date_published:'+data_list['date_published']+'</p>'+
+                           '<p>Rated:'+data_list['rated']+'</p>'+
+                           '<p>Imdb_score:'+data_list['imdb_score']+'</p>'+
+                           '<p>Directors:'+data_list['directors']+'</p>'+
+                           '<p class=actors_dialogue>Actors:'+data_list['actors']+'</p>'+
+                           '<p>Duration:'+data_list['duration']+'</p>'+
+                           '<p>Countries:'+data_list['countries']+'</p>'+
+                           '<p>Box_office:'+data_list['usa_gross_income']+'</p>'+
+                           '<div class = description><p>Description:'+data_list['description']+'</p></div>'+
+                           '<button onclick="$dialog.close()">Fermer</button>'
 
-function modal_best_movie(data_list_best_movie, $dialog ){
-        $dialog.innerHTML="<p>looooooooooooooool</p>"
         $dialog.showModal()
-
-
 }
+button_play.addEventListener('click', function(){ modal(data_list_best_movie[0], $dialog );});
 
+carousel_best_movies_position1.addEventListener('click', function(){ modal(image_best_movies,data_list_best_movies,carousel_best_movies_position1, $dialog );});
+carousel_best_movies_position2.addEventListener('click', function(){ modal(image_best_movies,data_list_best_movies,carousel_best_movies_position2, $dialog );});
+carousel_best_movies_position3.addEventListener('click', function(){ modal(image_best_movies,data_list_best_movies,carousel_best_movies_position3, $dialog );});
+carousel_best_movies_position4.addEventListener('click', function(){ modal(image_best_movies,data_list_best_movies,carousel_best_movies_position4, $dialog );});
 
-image.addEventListener('click', function(){ $dialog.showModal();});
-button_play.addEventListener('click', function(){ modal_best_movie(data_list_best_movie, $dialog );});
+carousel_familly_position1.addEventListener('click', function(){ modal(list_img_familly,data_list_family,carousel_familly_position1, $dialog );});
+carousel_familly_position2.addEventListener('click', function(){ modal(list_img_familly,data_list_family,carousel_familly_position2, $dialog );});
+carousel_familly_position3.addEventListener('click', function(){ modal(list_img_familly,data_list_family,carousel_familly_position3, $dialog );});
+carousel_familly_position4.addEventListener('click', function(){ modal(list_img_familly,data_list_family,carousel_familly_position4, $dialog );});
+
+carousel_horror_position1.addEventListener('click', function(){ modal(list_img_horror,data_list_horror,carousel_horror_position1, $dialog );});
+carousel_horror_position2.addEventListener('click', function(){ modal(list_img_horror,data_list_horror,carousel_horror_position2, $dialog );});
+carousel_horror_position3.addEventListener('click', function(){ modal(list_img_horror,data_list_horror,carousel_horror_position3, $dialog );});
+carousel_horror_position4.addEventListener('click', function(){ modal(list_img_horror,data_list_horror,carousel_horror_position4, $dialog );});
+
+carousel_music_position1.addEventListener('click', function(){ modal(list_img_music,data_list_music,carousel_music_position1, $dialog );});
+carousel_music_position2.addEventListener('click', function(){ modal(list_img_music,data_list_music,carousel_music_position2, $dialog );});
+carousel_music_position3.addEventListener('click', function(){ modal(list_img_music,data_list_music,carousel_music_position3, $dialog );});
+carousel_music_position4.addEventListener('click', function(){ modal(list_img_music,data_list_music,carousel_music_position4, $dialog );});
 
 
 click_forward_best_movies.addEventListener('click',function (){forwardClick(image_best_movies, carousel_best_movies_position1,
@@ -156,5 +212,6 @@ document.addEventListener ("DOMContentLoaded", function (){ajax_best_movies();})
 document.addEventListener ("DOMContentLoaded", function (){ajax_categorie_familly();});
 document.addEventListener ("DOMContentLoaded", function (){ajax_categorie_horror();});
 document.addEventListener ("DOMContentLoaded", function (){ajax_categorie_music();});
+document.addEventListener ("DOMContentLoaded", function (){ajax_best_movie();});
 
 
