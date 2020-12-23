@@ -74,7 +74,6 @@ function ajax_categorie_familly(){
           for(var i = 0; i < data_list.length; i++){
             list_img_familly.push(data_list[i]['image_url'])
             data_list_family.push(data_list[i])
-
           }
       }
     };
@@ -127,26 +126,10 @@ function backClick(list, carousel1, carousel2, carousel3, carousel4){
     carousel4.src=list[(position+3)%7];
 }
 function modal(list, data_list, carousel, dialog ){
-        if (carousel.src==list[0]){
-             data_list=data_list[0];
-        }
-        else if (carousel.src==list[1]){
-            data_list=data_list[1];
-        }
-        else if (carousel.src==list[2]){
-            data_list=data_list[2];
-        }
-        else if (carousel.src==list[3]){
-            data_list=data_list[3];
-        }
-        else if (carousel.src==list[4]){
-            data_list=data_list[4];
-        }
-        else if (carousel.src==list[5]){
-            data_list=data_list[5];
-        }
-        else if (carousel.src==list[6]){
-            data_list=data_list[6];
+        for(var i = 0; i < data_list.length; i++){
+            if (carousel.src==list[i]){
+                data_list=data_list[i];
+            }
         }
         dialog.innerHTML= '<img class=image_dialogue src='+data_list['image_url']+'>'+
                            '<button class=button_dialogue>Play</button>'+
