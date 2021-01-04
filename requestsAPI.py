@@ -7,6 +7,11 @@ class RequestsApi:
 
     @staticmethod
     def best_movie():
+        """
+
+        Fonction qui va requeter l'Api imdb pour récuperer le meilleur film
+        :return: le meilleur film
+        """
         try:
             response = requests.get('http://127.0.0.1:8000/api/v1/titles?imdb_score_min=9.6&year=2017')
         except requests.exceptions.RequestException as e:
@@ -22,6 +27,11 @@ class RequestsApi:
 
     @staticmethod
     def best_movies():
+        """
+
+        Fonction qui va requeter l'API pour recuperer les sept meilleur films
+        :return: liste des sept meilleurs films
+        """
         list_dic_best_movies = []
         payload = {"imdb_score_min": "9.35",
                    "page_size": "7"}
@@ -41,6 +51,11 @@ class RequestsApi:
 
     @staticmethod
     def categorie_family():
+        """
+
+        Fonction qui va requeter l'API pour recuperer les sept meilleur films de la categorie Famille
+        :return: liste des sept meilleurs films de la categorie Famille
+        """
         list_dic_familly = []
         payload = {"genre": "Family",
                    "imdb_score_min": "8.9",
@@ -61,6 +76,11 @@ class RequestsApi:
 
     @staticmethod
     def category_horror():
+        """
+
+        Fonction qui va requeter l'API pour recuperer les sept meilleur films de la categorie Horror
+        :return: liste des sept meilleurs films de la categorie Horror
+        """
         list_dic_horror = []
         payload = {"genre": "Horror",
                    "imdb_score_min": "8.5",
@@ -81,6 +101,11 @@ class RequestsApi:
 
     @staticmethod
     def category_music():
+        """
+
+        Fonction qui va requeter l'API pour recuperer les sept meilleur films de la categorie Music
+        :return: liste des sept meilleurs films de la categorie Music
+        """
         list_dic_music = []
         payload = {"genre": "Music",
                    "imdb_score_min": "8.6",

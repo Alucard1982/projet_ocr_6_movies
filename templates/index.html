@@ -15,7 +15,6 @@
   <div class="block">
       <h3>Meilleur Film</h3>
     <div id="meilleur-film">
-
         <div>
             <div>
                 <button id ="button-best">Show</button>
@@ -29,9 +28,9 @@
     <div class="block">
         <h3>Film les mieux notés</h3>
         <i id = "click_forward" class="fas fa-arrow-right" ></i>
-        <i id = "click_back"class="fas fa-arrow-left" ></i>
+        <i id = "click_back" class="fas fa-arrow-left" ></i>
         <div id="film-notes">
-            {% for picture in all_best_movies[:-3] %}
+            {% for picture in all_best_movies[:4] %}
                 <img class ="slider_best_movies" src="{{picture['image_url']}}" alt="movie">
             {% endfor %}
         </div>
@@ -42,7 +41,7 @@
         <i id = "click_forward_familly" class="fas fa-arrow-right" ></i>
         <i id = "click_back_familly" class="fas fa-arrow-left" ></i>
         <div id="film-categorie1">
-            {% for picture in categories_familly[:-3] %}
+            {% for picture in categories_familly[:4] %}
                 <img class ="slider_familly" src="{{picture['image_url']}}" alt="movie">
             {% endfor %}
         </div>
@@ -53,7 +52,7 @@
         <i id = "click_forward_horror" class="fas fa-arrow-right" ></i>
         <i id = "click_back_horror" class="fas fa-arrow-left" ></i>
         <div id="film-categorie2">
-            {% for picture in categories_horror[:-3] %}
+            {% for picture in categories_horror[:4] %}
                 <img class ="slider_horror" src="{{picture['image_url']}}" alt="movie">
             {% endfor %}
         </div>
@@ -64,7 +63,7 @@
         <i id = "click_forward_music" class="fas fa-arrow-right" ></i>
         <i id = "click_back_music" class="fas fa-arrow-left" ></i>
         <div id="film-categorie3">
-            {% for picture in categories_music[:-3] %}
+            {% for picture in categories_music[:4] %}
                 <img class ="slider_music" src="{{picture['image_url']}}" alt="movie">
             {% endfor %}
         </div>

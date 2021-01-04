@@ -53,18 +53,17 @@ function ajax_best_movie(){
     xmlhttp.send();
 }
 function ajax_best_movies(){
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-          data_list=JSON.parse(this.responseText);
-          for(var i = 0; i < data_list.length; i++){
-            image_best_movies.push(data_list[i]['image_url'])
-            data_list_best_movies.push(data_list[i])
-          }
-      }
-    };
-    xmlhttp.open("GET","http://127.0.0.1:5000/best_movies/", true);
-    xmlhttp.send();
+     fetch("http://127.0.0.1:5000/best_movies/").then((response) => {
+            response.json().then((data_list) => {
+            for(var i = 0; i < data_list.length; i++){
+                image_best_movies.push(data_list[i]['image_url'])
+                data_list_best_movies.push(data_list[i])
+            }
+            });
+     })
+     .catch((error) => {
+        console.log(error);
+     });
 }
 function ajax_categorie_familly(){
     var xmlhttp = new XMLHttpRequest();
