@@ -1,4 +1,5 @@
 var dialog = document.getElementById('mydialog');
+dialogPolyfill.registerDialog(dialog);
 var button_play = document.getElementById('button-best');
 
 var carousel_best_movies_position1 = document.getElementById('film-notes').getElementsByClassName('slider_best_movies')[0]
@@ -56,8 +57,8 @@ function ajax_best_movies(){
      fetch("http://127.0.0.1:5000/best_movies/").then((response) => {
             response.json().then((data_list) => {
             for(var i = 0; i < data_list.length; i++){
-                image_best_movies.push(data_list[i]['image_url'])
-                data_list_best_movies.push(data_list[i])
+                image_best_movies.push(data_list[i]['image_url']);
+                data_list_best_movies.push(data_list[i]);
             }
             });
      })
@@ -71,8 +72,8 @@ function ajax_categorie_familly(){
       if (this.readyState == 4 && this.status == 200) {
           data_list=JSON.parse(this.responseText);
           for(var i = 0; i < data_list.length; i++){
-            list_img_familly.push(data_list[i]['image_url'])
-            data_list_family.push(data_list[i])
+            list_img_familly.push(data_list[i]['image_url']);
+            data_list_family.push(data_list[i]);
           }
       }
     };
@@ -85,8 +86,8 @@ function ajax_categorie_horror(){
       if (this.readyState == 4 && this.status == 200) {
           data_list=JSON.parse(this.responseText);
           for(var i = 0; i < data_list.length; i++){
-            list_img_horror.push(data_list[i]['image_url'])
-            data_list_horror.push(data_list[i])
+            list_img_horror.push(data_list[i]['image_url']);
+            data_list_horror.push(data_list[i]);
           }
       }
     };
@@ -99,8 +100,8 @@ function ajax_categorie_music(){
       if (this.readyState == 4 && this.status == 200) {
           data_list=JSON.parse(this.responseText);
           for(var i = 0; i < data_list.length; i++){
-            list_img_music.push(data_list[i]['image_url'])
-            data_list_music.push(data_list[i])
+            list_img_music.push(data_list[i]['image_url']);
+            data_list_music.push(data_list[i]);
           }
       }
     };
@@ -145,7 +146,7 @@ function modal(list, data_list, carousel, dialog ){
                            '<div class = description_dialogue><p>Description:'+data_list['description']+'</p></div>'+
                            '<button onclick="dialog.close()">Close</button>'
 
-        dialog.showModal()
+        dialog.showModal();
 }
 function modal_best_film(data_list, dialog ){
         dialog.innerHTML= '<img class=image_dialogue src='+data_list['image_url']+'>'+
@@ -163,7 +164,7 @@ function modal_best_film(data_list, dialog ){
                            '<div class = description_dialogue><p>Description:'+data_list['description']+'</p></div>'+
                            '<button onclick="dialog.close()">Close</button>'
 
-        dialog.showModal()
+        dialog.showModal();
 }
 button_play.addEventListener('click', function(){ modal_best_film(data_list_best_movie[0],dialog );});
 
